@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Employee ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email ID</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {%for data in records%}
+      <tr>
+        <th scope="row">{{data.id}}</th>
+        <td>{{data.name}}</td>
+        <td>{{data.email}}</td>
+      </tr>
+      {%endfor%}
+      
+    </tbody>
+  </table>
+  <h1>contact page</h1>
+<!--
+{%for data in records%}
+
+<div style="background-color: burlywood;border: 5px solid rgb(104, 51, 51);">
+ID: {{data.id}}<br>
+Name: {{data.name}}<br>
+Email: {{data.email}}
+</div>
+
+{%endfor%}
+-->
+
+{% endblock %}

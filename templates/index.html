@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Employee ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email ID</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {%for data in records%}
+      <tr>
+        <th scope="row">{{data.id}}</th>
+        <td>{{data.name}}</td>
+        <td>{{data.email}}</td>
+      </tr>
+      {%endfor%}
+      
+    </tbody>
+  </table>
+
+  <h1>Home</h1>
+
+<form action="/add/" method="post">
+    {% csrf_token %}
+
+    Enter First No: <input type="text" name="num1"><br><br>
+    Enter Second No: <input type="text" name="num2"><br><br>
+    <input type="submit" value="Add">
+</form>
+
+<form action="/contact/" method="post">
+        {% csrf_token %}
+    
+        Name: <input type="text" name="ename"><br><br>
+        Email: <input type="email" name="Email"><br><br>
+        <input type="submit" value="save">
+</form><br>
+
+<form method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <input type="file" name="myfile">
+    <input type="submit" value="upload">
+    
+{% endblock %}
